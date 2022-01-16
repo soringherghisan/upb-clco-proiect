@@ -26,7 +26,7 @@ spec:
         io.kompose.service: flask-api
     spec:
       containers:
-          image: sg1userdocker/flask_api
+          - image: sg1userdocker/flask_api
           name: flask-api
           ports:
             - containerPort: 5000
