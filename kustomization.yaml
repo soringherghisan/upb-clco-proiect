@@ -19,7 +19,7 @@ resources:
   - scrapyd-service.yaml
   - kafka-full.yaml
   - kafka-persistent-single.yaml
-  - flask-api-deployment.yaml
+  - flask-deployment.yaml
   - flask-api-service.yaml
   - service-clusterIp.yaml
   - service-load-balancer.yaml
