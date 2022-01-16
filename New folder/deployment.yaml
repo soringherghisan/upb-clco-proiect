@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: spring-boot-kafka-kubernetes-demo
+  name: spring-boot-kafka-kubernetes-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-kafka-kubernetes-demo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: spring-boot-kafka-kubernetes-demo
+    spec:
+      containers:
+      - image: asxasx/spring-boot-kafka-kubernetes-demo:6
+        name: spring-boot-kafka-kubernetes-demo
+        imagePullPolicy: IfNotPresent
+#        env:
+#          - name: MONGO_DB
+#            valueFrom:
+#              configMapKeyRef:
+#                name: movie-db-config
+#                key: database
+#          - name: MONGO_HOST
+#            valueFrom:
+#              configMapKeyRef:
+#                name: movie-db-config
+#                key: host
+        resources: {}
+status: {}

@@ -1,0 +1,22 @@
+secretGenerator:
+  - name: mongo-credentials
+    literals:
+      - password=example
+      - username=root
+
+resources:
+  - backend-networkpolicy.yaml
+  - frontend-networkpolicy.yaml
+  - mongo-deployment.yaml
+  - mongo-express-deployment.yaml
+  - mongo-express-service.yaml
+  - scrapyd-deployment.yaml
+  - scrapyd-service.yaml
+  - mongo-service.yaml
+  - kafka-full.yaml
+  - kafka-persistent-single.yaml
+
+
+# k create namespace kafka
+# k apply -k . -n kafka
+# k delete -k . -n kafka

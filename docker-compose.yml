@@ -1,0 +1,45 @@
+﻿version: '3'
+
+services:
+
+  mongo:
+    image: mongo
+    container_name: my_mongodb
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    volumes:
+      - ./mongodata:/data/db
+    networks:
+      - backend
+
+  # for viewing/managing db via webapp
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "6969:8081"
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - mongo
+    environment:
+      ME_CONFIG_MONGODB_URL: "mongodb://root:example@mongo:27017/"
+
+  scrapyd:
+    image: sg1userdocker/python_scrapyd
+    restart: always
+    ports:
+      - "6800:6800"
+    networks:
+      - backend
+    depends_on:
+      - mongo
+
+networks:
+  frontend:
+  backend:
+
+
