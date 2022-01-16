@@ -1,8 +1,8 @@
-secretGenerator:
-  - name: mongo-credentials
-    literals:
-      - password=example
-      - username=root
+#secretGenerator:
+#  - name: mongo-credentials
+#    literals:
+#      - password=example
+#      - username=root
 
 resources:
   - backend-networkpolicy.yaml
