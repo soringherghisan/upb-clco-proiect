@@ -7,14 +7,23 @@ secretGenerator:
 resources:
   - backend-networkpolicy.yaml
   - frontend-networkpolicy.yaml
-  - mongo-deployment.yaml
+  - mongo-deployment-v2.yaml
+  - mongo-service-v2.yaml
+  - mongo-config-map.yaml
+  - mongo-pv.yaml
+  - mongo-pvc.yaml
+  - mongo-secret.yaml
   - mongo-express-deployment.yaml
   - mongo-express-service.yaml
   - scrapyd-deployment.yaml
   - scrapyd-service.yaml
-  - mongo-service.yaml
   - kafka-full.yaml
   - kafka-persistent-single.yaml
+  - flask-api-deployment.yaml
+  - flask-api-service.yaml
+  - service-clusterIp.yaml
+  - service-load-balancer.yaml
+  - spring-deployment.yaml
 
 
 # k create namespace kafka

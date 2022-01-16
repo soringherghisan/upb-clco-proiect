@@ -21,16 +21,16 @@ spec:
       - image: asxasx/spring-boot-kafka-kubernetes-demo:6
         name: spring-boot-kafka-kubernetes-demo
         imagePullPolicy: IfNotPresent
-#        env:
-#          - name: MONGO_DB
-#            valueFrom:
-#              configMapKeyRef:
-#                name: movie-db-config
-#                key: database
-#          - name: MONGO_HOST
-#            valueFrom:
-#              configMapKeyRef:
-#                name: movie-db-config
-#                key: host
-        resources: {}
-status: {}
+        env:
+          - name: MONGO_DB
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-config
+                key: database
+          - name: MONGO_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-config
+                key: host
+        ports:
+          - containerPort: 9999

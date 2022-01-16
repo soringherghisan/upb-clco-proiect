@@ -30,15 +30,22 @@ spec:
             - name: MONGO_INITDB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mongo-credentials
+                  name: mongo-secret
                   key: password
             - name: MONGO_INITDB_ROOT_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: mongo-credentials
+                  name: mongo-secret
                   key: username
           image: mongo
           name: my-mongodb
+          volumeMounts:
+            - name: hostvol
+              mountPath: /data/db
           resources: {}
+      volumes:
+        - name: hostvol
+          persistentVolumeClaim:
+            claimName: mongo-pv-claim
       restartPolicy: Always
 status: {}
